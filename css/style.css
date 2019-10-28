@@ -1,0 +1,102 @@
+#intro {
+    width: 100%;
+    position: relative;
+    background: #FFF;
+    background-size: cover;
+    padding: 100px 0 250px;
+}
+#intro .intro-info .btn-get-started,
+#intro .intro-info .btn-services {
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 32px;
+    border-radius: 50px;
+    transition: .5s;
+    margin: 0 20px 20px 0;
+    color: #fff
+}
+
+#intro .intro-info .btn-get-started {
+    background: #007bff;
+    border: 2px solid #007bff;
+    color: #fff
+}
+
+#intro .intro-info .btn-get-started:hover {
+    background: none;
+    border-color: #fff;
+    color: #fff
+} 
+
+#intro .intro-info .btn-services {
+    border: 2px solid #fff
+}
+
+#intro .intro-info .btn-get-started:hover {
+    background: none;
+    border-color: #007bff;
+    color: #007bff;
+    text-decoration: none;
+}
+#color-palette{
+    background-color: #85ff9e;
+    background-color: #A6F4DC;
+    background-color: #af90a9;
+    background-color: #9a348e;
+    background-color: #944654;
+}
+#h2 {
+    color: #007bff;
+    font-size: 52pt;
+}
+#header{
+    background: #FFF;
+}
+#form{
+    padding: 30px;
+    border-radius: 30px;
+}
+#pesan{
+    position:relative;
+    -webkit-animation: muncul 1s; /* Chrome, Safari, Opera */
+    animation: muncul 1s;
+}
+@keyframes muncul {
+    0% {
+        opacity: 0;
+        top: 100px;
+    }
+    100% {
+      opacity: 1;
+      top:0px;
+    }
+  }
+#tw_uploaded{
+    margin-top: 30px;
+}
+.card{
+    margin-top: 10px;
+}
+#formup{
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.02);
+}
+#img{
+    margin-top: 60px;
+}
+.list-group-item{
+    border: none;
+}
+.p-wrapper{
+    height: 232px;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+@media (max-width: 576px) {
+    #formup{
+        margin-top:30px;
+    }
+  }
