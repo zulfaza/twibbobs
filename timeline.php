@@ -11,7 +11,11 @@ require_once("config.php");
     $data = mysqli_fetch_array($query);
     $name = $data['name'];
     $email = $data['email'];
-    $pp = $data['photo'];
+	if(isset($_GET['pesan']) && $_GET['pesan']=='first'){
+	$pp = "./img/default.svg;
+	} else {
+	$pp = $data['photo'];
+	}
     ?>
 <?php
 if (count($_FILES) > 0) {
