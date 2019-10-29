@@ -1,3 +1,4 @@
+<?php require_once("../config.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +21,6 @@
     $nama_tw = " ";
     $caption= " ";
     $update = false;
-
-    $koneksi = mysqli_connect("localhost","root","","twibbon");
 
     if(isset($_GET['pesan'])){
     $id = $_GET['pesan'];
