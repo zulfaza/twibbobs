@@ -139,6 +139,7 @@ if (isset($_POST['edit'])) {
                     </button></div>
                     </div></div></div>
                     ";
+                break;
                 case 'overload' :
                 echo "<div class=\"row\" id=\"section\">
                     <div class=\"col-md\" id=\"pesan\">
