@@ -3,6 +3,13 @@
 	if($_SESSION['status']!="login"){
 		header("location:./login.php?pesan=belum_login");
 	}
+    $id = $_SESSION['user']['id'];
+    $koneksi = mysqli_connect("localhost","root","","twibbon");
+    $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
+    $data = mysqli_fetch_array($query);
+    $name = $data['name'];
+    $email = $data['email'];
+    $pp = $data['photo'];
     ?>
 <?php
 if (count($_FILES) > 0) {
@@ -46,6 +53,7 @@ if (count($_FILES) > 0) {
         $nama_tw = " ";
         $caption= " ";
         $update = false;
+        $id_user=$_SESSION["user"]["id"];
 
         $koneksi = mysqli_connect("localhost","root","","twibbon");
         
@@ -119,14 +127,17 @@ if (count($_FILES) > 0) {
 
                 <div class="card">
                     <div class="card-body text-center">
+                        
+                            <div class="container mb-3" id="pp">
+                        <img class="img img-responsive" height="160"
+                            src="<?php echo $pp ?>" />
+                            </div>
 
-                        <img class="img img-responsive rounded-circle mb-3" width="160"
-                            src="img/<?php echo $_SESSION['user']['photo'] ?>" />
+                        <h3><?php echo  $name ?></h3>
+                        <p><?php echo $email ?></p>
 
-                        <h3><?php echo  $_SESSION["user"]["name"] ?></h3>
-                        <p><?php echo $_SESSION["user"]["email"] ?></p>
-
-                        <p><a href="logout.php">Logout</a></p>
+                        <a href="logout.php" class="btn btn-primary">Logout</a>
+                        <a href="./tl_setting.php?edit=<?=$id_user?>" class="btn btn-primary">Setting</a>
                     </div>
                 </div>
 
@@ -186,6 +197,17 @@ if (count($_FILES) > 0) {
                         <div class=\"col-md\" id=\"pesan\">
                         <div class=\"pesan\">
                         <div class=\"alert alert-success\" role=\"alert\">Twibbon berhasil dihapus<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
+                        <span aria-hidden=\"true\">&times;</span> 
+                        </button></div>
+                        </div></div></div>
+                        ";
+                    break;
+                    case 'setting_berhasil' :
+                    echo "
+                        <div class=\"row\" id=\"section\">
+                        <div class=\"col-md\" id=\"pesan\">
+                        <div class=\"pesan\">
+                        <div class=\"alert alert-success\" role=\"alert\">Setting berhasil disimpan<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
                         <span aria-hidden=\"true\">&times;</span> 
                         </button></div>
                         </div></div></div>

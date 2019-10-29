@@ -153,7 +153,7 @@
                 var target = e.dataTransfer || e.target
                 var file = target && target.files && target.files[0]
                 var options = {
-                    maxWidth: 800,
+                    maxWidth: 3000,
                     canvas: true,
                     pixelRatio: window.devicePixelRatio,
                     downsamplingRatio: 0.5
