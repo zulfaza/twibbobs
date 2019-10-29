@@ -51,6 +51,8 @@ if (count($_FILES) > 0) {
             
             mysqli_query($koneksi, $sql) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
             $pp = "./add_pp.php?id=$id";
+            $sql = "UPDATE users SET photo='$pp' WHERE id=$id";
+            mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
         }
     } else {
         header("Location: tl_setting.php?pesan=overload&edit=$id");
@@ -173,13 +175,13 @@ if (isset($_POST['edit'])) {
                     </div>
                     
                     <div class="form-group">
-                    <label for="username">Nama</label>
+                    <label for="username">Username</label>
                     <input class="form-control" type="text" name="username" placeholder="Masukan username" value="<?php echo $username; ?>" />
                     </div>
 
                     <div class="form-group">
                     <label for="email">email</label>
-                    <input class="form-control" type="text" name="email" placeholder="Masukan Nama Twibbon" value="<?php echo $email; ?>" />
+                    <input class="form-control" type="email" name="email" placeholder="Masukan Nama Twibbon" value="<?php echo $email; ?>" />
                     </div>
 
                         <button type="submit" class="btn btn-primary" name="edit">Submit</button>
