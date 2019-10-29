@@ -31,9 +31,17 @@ if($_SESSION['status']=="login"){
     // eksekusi query untuk menyimpan ke database
     $saved = $stmt->execute($params);
 
-    // jika query simpan berhasil, maka user sudah terdaftar
-    // maka alihkan ke halaman login
-    if($saved) header("Location: register.php?pesan=saved");
+    if($saved) {
+       $_SESSION["user"] = $user;
+       $_SESSION["user"]["name"] = $name;
+      $_SESSION["user"]["email"] = $email;
+       $_SESSION["username"] = $username;
+       $_SESSION['status'] = "login";
+      $_SESSION['user']['photo'] = "default.svg";
+        header("Location: timeline.php?pesan=first");
+      } else {
+      header("Location: register.php?pesan=gagal");
+    }
 }
 
 ?>
