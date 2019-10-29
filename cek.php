@@ -1,6 +1,6 @@
 
 <?php 
-     require_once("config.php");
+    $koneksi = mysqli_connect("localhost","zul","zulfaza123","twibbon");
     $query  = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
     $data = mysqli_fetch_array($query);
     $name = $data['name'];
@@ -66,10 +66,22 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
+          <div class="row">
+              <div class="col">
       <table border="1">
     <tr><th>NO</th><th>id</th><th>author</th><th>nama twibbon</th><th>caption</th></tr>
     <?php
+ if(isset($_POST['cek'])){   
+    if ($_POST['author']!="all") {
+        $syarat=$_POST['author'];
+        $where="WHERE author='$syarat' ";
+        $user = mysqli_query($koneksi, "SELECT * from tb_images $where");
+    } else {
     $user = mysqli_query($koneksi, "SELECT * from tb_images");
+    }
+}else {
+    $user = mysqli_query($koneksi, "SELECT * from tb_images");
+    }
     $no=1;
     foreach ($user as $row){
         echo "<tr>
@@ -83,6 +95,32 @@
     }
     ?>
 </table>
+</div>
+<div class="col">
+<form action="" method="POST">
+<fieldset>
+            <label>author</label>
+            <select name="author">
+            <?php
+    $user = mysqli_query($koneksi, "SELECT * from users");
+    $no=1;
+    $all="all";
+    foreach ($user as $row){
+        $author=$row['username'];
+        echo "<option value=\"$author\">$author</option>";
+        $no++;
+    }echo "<option value=\"$all\">All</option";
+    ?>
+   
+            </select>
+        </p>
+        <p>
+            <input type="submit" name="cek" value="Daftar" />
+        </p>
+</fieldset>
+</form>
+</div>
+</div>
       </div>
     </div>
   </div>
