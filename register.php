@@ -33,6 +33,7 @@ if($_SESSION['status']=="login"){
 
     if($saved) {
        $_SESSION["user"] = $saved;
+        $_SESSION['status']= "login";
         header("Location: timeline.php?pesan=first");
       } else {
       header("Location: register.php?pesan=gagal");
