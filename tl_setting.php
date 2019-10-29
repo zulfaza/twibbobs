@@ -1,5 +1,7 @@
 <?php require_once("auth.php"); ?>
+
 <?php require_once("config.php"); ?>
+
 <?php 
 	if($_SESSION['status']!="login"){
 		header("location:./login.php?pesan=belum_login");
