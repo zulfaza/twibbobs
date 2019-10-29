@@ -63,9 +63,9 @@ if (count($_FILES) > 0) {
         $pp = "./add_pp.php?id=$id";
             
             $id=$_POST['id'];
-            $name=$_POST['name'];
-            $username=$_POST['username'];
-            $email=$_POST['email'];
+            $name=filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+            $username=filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+            $email=filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
             
             $sql = "UPDATE users SET username='$username', email='$email', name='$name', photo='$pp' WHERE id=$id";
             mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
