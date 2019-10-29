@@ -200,6 +200,17 @@ if (count($_FILES) > 0) {
                         </div></div></div>
                         ";
                     break;
+		case 'first' :
+                    echo "
+                        <div class=\"row\" id=\"section\">
+                        <div class=\"col-md\" id=\"pesan\">
+                        <div class=\"pesan\">
+                        <div class=\"alert alert-info\" role=\"alert\">Selamat datang di Twibbobs, disini kamu dapat mengupload twibbon dan captionmu untuk mendapatkan link pemasang twibbonnya!!<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
+                        <span aria-hidden=\"true\">&times;</span> 
+                        </button></div>
+                        </div></div></div>
+                        ";
+                    break;
                     case 'setting_berhasil' :
                     echo "
                         <div class=\"row\" id=\"section\">
