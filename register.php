@@ -32,12 +32,7 @@ if($_SESSION['status']=="login"){
     $saved = $stmt->execute($params);
 
     if($saved) {
-       $_SESSION["user"] = $user;
-       $_SESSION["user"]["name"] = $name;
-      $_SESSION["user"]["email"] = $email;
-       $_SESSION["username"] = $username;
-       $_SESSION['status'] = "login";
-      $_SESSION['user']['photo'] = "./img/default.svg";
+       $_SESSION["user"] = $saved;
         header("Location: timeline.php?pesan=first");
       } else {
       header("Location: register.php?pesan=gagal");
