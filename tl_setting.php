@@ -1,12 +1,7 @@
-<?php require_once("auth.php"); ?>
-
-<?php require_once("config.php"); ?>
-
 <?php 
-	if($_SESSION['status']!="login"){
-		header("location:./login.php?pesan=belum_login");
-	}
-    ?>
+require_once("auth.php");
+require_once("config.php");
+?>
 <?php
               $id = $_GET['edit'];
         $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
@@ -73,8 +68,6 @@ if (isset($_POST['edit'])) {
       $sql = "UPDATE users SET username='$username', email='$email', name='$name', photo='$pp' WHERE id=$id";
       mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
       header("Location: timeline.php?pesan=setting_berhasil");
-  } else {
-      header("Location: tl_setting.php?pesan=gagal&edit=$id");
   }
 ?>
 <!DOCTYPE html>
