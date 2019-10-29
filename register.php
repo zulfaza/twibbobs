@@ -37,7 +37,7 @@ if($_SESSION['status']=="login"){
       $_SESSION["user"]["email"] = $email;
        $_SESSION["username"] = $username;
        $_SESSION['status'] = "login";
-      $_SESSION['user']['photo'] = "default.svg";
+      $_SESSION['user']['photo'] = "./img/default.svg";
         header("Location: timeline.php?pesan=first");
       } else {
       header("Location: register.php?pesan=gagal");
