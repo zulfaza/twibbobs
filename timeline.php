@@ -25,8 +25,7 @@ if (count($_FILES) > 0) {
         if (in_array($ekstensi, $extensionList))
             {
                 if($size<=2000000){
-        $koneksi = mysqli_connect("localhost","root","","twibbon");
-		$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
+	$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
         $propertiesgambar = getimageSize($_FILES['gambar']['tmp_name']);
         $nama = $_SESSION['username'];
         $nama_tw = $_POST['nama_tw'];
@@ -36,7 +35,7 @@ if (count($_FILES) > 0) {
         $sql = "INSERT INTO tb_images(author,tipeimage ,dataimage,nama_tw,ukuran,caption) VALUES('" . $nama . "','" . $propertiesgambar['mime'] . "', '" . $datagambar . "', '" . $nama_tw . "','" . $ukuran . "','".$caption."' )";
         mysqli_query($koneksi, $sql) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
         $lastrecord = "SELECT id FROM tb_images ORDER BY id DESC LIMIT 1";
-		$result = mysqli_query($koneksi, $lastrecord) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
+	$result = mysqli_query($koneksi, $lastrecord) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
         $getid = mysqli_fetch_array($result);
         if (isset($getid["id"])) {
             header("Location: timeline.php?pesan=upload_berhasil");
@@ -56,9 +55,6 @@ if (count($_FILES) > 0) {
         $caption= " ";
         $update = false;
         $id_user=$_SESSION["user"]["id"];
-
-        $koneksi = mysqli_connect("localhost","root","","twibbon");
-        
         $nama = $_SESSION['username'];
         
         
