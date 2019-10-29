@@ -1,15 +1,17 @@
 <?php 
 require_once("auth.php");
-require_once("config.php");
+require_once("config.php"); 
 ?>
+
 <?php
-              $id = $_GET['edit'];
+        $id = $_GET['edit'];
         $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
         $data = mysqli_fetch_array($query);
         $name = $data['name'];
         $username = $data['username'];
         $email = $data['email'];
         $pp = $data['photo'];
+
 if (count($_FILES) > 0) {
   if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
         
@@ -17,7 +19,6 @@ if (count($_FILES) > 0) {
         $size=$_FILES['photo']['size'];
 
         if($size<=3000000){
-
         
         $datagambar = addslashes(file_get_contents($_FILES['photo']['tmp_name']));
         $propertiesgambar = getimageSize($_FILES['photo']['tmp_name']);
@@ -48,7 +49,7 @@ if (count($_FILES) > 0) {
                 WHERE id=$id";
 
             
-            mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
+            mysqli_query($koneksi, $sql) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
             $pp = "./add_pp.php?id=$id";
         }
     } else {
