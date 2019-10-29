@@ -8,16 +8,15 @@
 	}
     ?>
 <?php
-        $id = $_GET['edit'];
+              $id = $_GET['edit'];
         $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
         $data = mysqli_fetch_array($query);
         $name = $data['name'];
         $username = $data['username'];
         $email = $data['email'];
-
+        $pp = $data['photo'];
 if (count($_FILES) > 0) {
-
-    if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
+  if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
         
         $fileName = $_FILES['photo']['name']; 
         $size=$_FILES['photo']['size'];
@@ -55,30 +54,28 @@ if (count($_FILES) > 0) {
 
             
             mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
-        
-        }
-
-
-        if (isset($_POST['edit'])) {
-        $pp = "./add_pp.php?id=$id";
-            
-            $id=$_POST['id'];
-            $name=filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-            $username=filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-            $email=filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-            
-            $sql = "UPDATE users SET username='$username', email='$email', name='$name', photo='$pp' WHERE id=$id";
-            mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
-            header("Location: timeline.php?pesan=setting_berhasil");
-        } else {
-            header("Location: tl_setting.php?pesan=gagal&edit=$id");
+            $pp = "./add_pp.php?id=$id";
         }
     } else {
         header("Location: tl_setting.php?pesan=overload&edit=$id");
     }
     }
-
 }
+
+if (isset($_POST['edit'])) {
+  
+      
+      $id=$_POST['id'];
+      $name=$_POST['name'];
+      $username=$_POST['username'];
+      $email=$_POST['email'];
+      
+      $sql = "UPDATE users SET username='$username', email='$email', name='$name', photo='$pp' WHERE id=$id";
+      mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
+      header("Location: timeline.php?pesan=setting_berhasil");
+  } else {
+      header("Location: tl_setting.php?pesan=gagal&edit=$id");
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
