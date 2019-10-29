@@ -130,11 +130,30 @@ if (count($_FILES) > 0) {
         if(isset($_GET['pesan'])){
             switch ($_GET['pesan'])
             {
-                case 'format_salah' :
+                case 'setting_fail' :
                 echo "<div class=\"row\" id=\"section\">
                     <div class=\"col-md\" id=\"pesan\">
                     <div class=\"pesan\">
-                    <div class=\"alert alert-danger\" role=\"alert\">File yang diupload harus berformat png<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
+                    <div class=\"alert alert-danger\" role=\"alert\">Terjadi kesalahan, perubahan tidak tersimpan<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
+                    <span aria-hidden=\"true\">&times;</span> 
+                    </button></div>
+                    </div></div></div>
+                    ";
+                    break;
+                case 'gagal' :
+                echo "<div class=\"row\" id=\"section\">
+                    <div class=\"col-md\" id=\"pesan\">
+                    <div class=\"pesan\">
+                    <div class=\"alert alert-danger\" role=\"alert\">Terjadi kesalahan, perubahan tidak tersimpan<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
+                    <span aria-hidden=\"true\">&times;</span> 
+                    </button></div>
+                    </div></div></div>
+                    ";
+                case 'overload' :
+                echo "<div class=\"row\" id=\"section\">
+                    <div class=\"col-md\" id=\"pesan\">
+                    <div class=\"pesan\">
+                    <div class=\"alert alert-danger\" role=\"alert\">File foto terlalu besar<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
                     <span aria-hidden=\"true\">&times;</span> 
                     </button></div>
                     </div></div></div>
