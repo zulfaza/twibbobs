@@ -1,21 +1,15 @@
-<?php 
-require_once("auth.php"); 
-require_once("config.php"); 
-?>
+<?php require_once("auth.php"); ?>
 <?php 
 	if($_SESSION['status']!="login"){
 		header("location:./login.php?pesan=belum_login");
 	}
     $id = $_SESSION['user']['id'];
+    $koneksi = mysqli_connect("localhost","root","","twibbon");
     $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
     $data = mysqli_fetch_array($query);
     $name = $data['name'];
     $email = $data['email'];
-	if(isset($_GET['pesan']) && $_GET['pesan']=="first"){
-	$pp = "./img/default.svg";
-	} else {
-	$pp = $data['photo'];
-	}
+    $pp = $data['photo'];
     ?>
 <?php
 if (count($_FILES) > 0) {
@@ -29,7 +23,8 @@ if (count($_FILES) > 0) {
         if (in_array($ekstensi, $extensionList))
             {
                 if($size<=2000000){
-	$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
+        $koneksi = mysqli_connect("localhost","root","","twibbon");
+		$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
         $propertiesgambar = getimageSize($_FILES['gambar']['tmp_name']);
         $nama = $_SESSION['username'];
         $nama_tw = $_POST['nama_tw'];
@@ -39,7 +34,7 @@ if (count($_FILES) > 0) {
         $sql = "INSERT INTO tb_images(author,tipeimage ,dataimage,nama_tw,ukuran,caption) VALUES('" . $nama . "','" . $propertiesgambar['mime'] . "', '" . $datagambar . "', '" . $nama_tw . "','" . $ukuran . "','".$caption."' )";
         mysqli_query($koneksi, $sql) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
         $lastrecord = "SELECT id FROM tb_images ORDER BY id DESC LIMIT 1";
-	$result = mysqli_query($koneksi, $lastrecord) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
+		$result = mysqli_query($koneksi, $lastrecord) or die("<b>Error:</b> Ada kesalahan<br/>" . mysqli_error($koneksi));
         $getid = mysqli_fetch_array($result);
         if (isset($getid["id"])) {
             header("Location: timeline.php?pesan=upload_berhasil");
@@ -59,6 +54,9 @@ if (count($_FILES) > 0) {
         $caption= " ";
         $update = false;
         $id_user=$_SESSION["user"]["id"];
+
+        $koneksi = mysqli_connect("localhost","root","","twibbon");
+        
         $nama = $_SESSION['username'];
         
         
@@ -113,6 +111,11 @@ if (count($_FILES) > 0) {
             <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
             </li>
+            <?php
+            if($_SESSION["user"]['level']=="admin"){
+                echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./cek.php\" style=\"color:red\">Admin Page</a></li>"; 
+            }
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="./logout.php" style="color:#007bff">logout</a>
             </li>
@@ -199,17 +202,6 @@ if (count($_FILES) > 0) {
                         <div class=\"col-md\" id=\"pesan\">
                         <div class=\"pesan\">
                         <div class=\"alert alert-success\" role=\"alert\">Twibbon berhasil dihapus<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
-                        <span aria-hidden=\"true\">&times;</span> 
-                        </button></div>
-                        </div></div></div>
-                        ";
-                    break;
-		case 'first' :
-                    echo "
-                        <div class=\"row\" id=\"section\">
-                        <div class=\"col-md\" id=\"pesan\">
-                        <div class=\"pesan\">
-                        <div class=\"alert alert-info\" role=\"alert\">Selamat datang di Twibbobs, disini kamu dapat mengupload twibbon dan captionmu untuk mendapatkan link pemasang twibbonnya!!<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> 
                         <span aria-hidden=\"true\">&times;</span> 
                         </button></div>
                         </div></div></div>
