@@ -59,14 +59,25 @@
       <div class="card-body">
       <div class="row>
           <div class="col-12">
-<table border="1">
-    <tr><th>NO</th><th>id</th><th>username</th><th>email</th><th>nama</th><th>Level</th><th>Action</th></tr>
+<table class="table-responsive">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">email</th>
+      <th scope="col">nama</th>
+      <th scope="col">Level</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
     <?php
     $user = mysqli_query($koneksi, "SELECT * from users");
     $no=1;
     foreach ($user as $row){
         echo "<tr>
-            <td>$no</td>
+            <td scope=\"row\">$no</td>
             <td>".$row['id']."</td>
             <td>".$row['username']."</td>
             <td>".$row['email']."</td>
@@ -77,6 +88,7 @@
         $no++;
     }
     ?>
+  </tbody>
 </table>
           </div>
           </div>
