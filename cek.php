@@ -57,9 +57,10 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-      <div class="row>
+        <div class="row">
           <div class="table-responsive">
-<table class="table">
+            
+          <table class="table">
   <thead>
     <tr>
       <th scope="col">No</th>
@@ -90,8 +91,7 @@
     ?>
   </tbody>
 </table>
-          </div>
-          </div>
+</div></div>
       </div>
     </div>
   </div>
@@ -175,9 +175,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-      <div class="row>
-                  <div class="col-12">
-          <table border="1">
+      <table border="1">
     <tr><th>NO</th><th>id</th><th>nama</th><th>tipe image</th></tr>
     <?php
     $user = mysqli_query($koneksi, "SELECT * from tb_pp");
@@ -193,8 +191,6 @@
     }
     ?>
 </table>
-         </div>
-        </div>
       </div>
     </div>
   </div>
