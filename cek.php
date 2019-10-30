@@ -1,12 +1,7 @@
-
 <?php 
-    $koneksi = mysqli_connect("localhost","zul","zulfaza123","twibbon");
-    $query  = mysqli_query($koneksi, "SELECT * FROM users ORDER BY id DESC");
-    $data = mysqli_fetch_array($query);
-    $name = $data['name'];
-    $username = $data['username'];
-    $email = $data['email'];
-    $pp = $data['photo'];
+    require_once("config.php");
+    session_start();
+    if($_SESSION["user"]['level']!="admin") header("Location: 404.html");
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +15,33 @@
     <title>Cek</title>
 </head>
 <body>
+<header id="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light >
+        <a class="navbar-brand" href="./index.php">
+          <h1>Twibbobs</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./timeline.php">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./logout.php" style="color:#007bff">logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
 <section id="tw_uploaded">
     <div class="container">
     <div class="accordion" id="accordionExample">
@@ -36,7 +58,7 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
 <table border="1">
-    <tr><th>NO</th><th>id</th><th>username</th><th>email</th><th>nama</th></tr>
+    <tr><th>NO</th><th>id</th><th>username</th><th>email</th><th>nama</th><th>Level</th><th>Action</th></tr>
     <?php
     $user = mysqli_query($koneksi, "SELECT * from users");
     $no=1;
@@ -47,6 +69,8 @@
             <td>".$row['username']."</td>
             <td>".$row['email']."</td>
             <td>".$row['name']."</td>
+            <td>".$row['level']."</td>
+            <td><a class=\"btn btn-danger\" href=\"./hapus.php?akun=".$row['id']."\" role=\"button\">Hapus</a></td>
               </tr>";
         $no++;
     }
