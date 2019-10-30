@@ -143,6 +143,8 @@ if (count($_FILES) > 0) {
                         } else {
                             echo "height: 100%;  width: auto;";
                         }
+	   			echo $height;
+	   			echo $width;
                         ?> 
                         display: block; margin: auto;"
                             src="<?php echo $pp ?>" />
