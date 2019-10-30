@@ -140,12 +140,14 @@ if (count($_FILES) > 0) {
                         $width = $data[0];
                         $height = $data[1];
                         if($width<$height){
+				echo $height;
+	   			echo $width;
                            echo "height: auto;  width: 100%;";
                         } else {
-                            echo "height: 100%;  width: auto;";
-                        }
-	   			echo $height;
+                            echo $height;
 	   			echo $width;
+				echo "height: 100%;  width: auto;";
+                        }
                         ?> 
                         display: block; margin: auto;"
                             src="<?php echo $pp ?>" />
