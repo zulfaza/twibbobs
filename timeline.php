@@ -24,7 +24,7 @@ if (count($_FILES) > 0) {
             {
                 if($size<=2000000){
         $koneksi = mysqli_connect("localhost","root","","twibbon");
-		$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
+	$datagambar = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
         $propertiesgambar = getimageSize($_FILES['gambar']['tmp_name']);
         $nama = $_SESSION['username'];
         $nama_tw = $_POST['nama_tw'];
@@ -136,7 +136,7 @@ if (count($_FILES) > 0) {
                         <img class="img img-responsive" style="
                         <?php
                         $filename='https://twibbobs.omahti.web.id/add_pp.php?id='.$id;
-	   		$data = getimagesize($pp);
+	   		$data = getimagesize($filename);
                         $width = $data[0];
                         $height = $data[1];
                         if($width<$height){
