@@ -49,7 +49,6 @@ if (count($_FILES) > 0) {
 }
 ?>
 <?php
-        $id=0;
         $nama_tw = " ";
         $caption= " ";
         $update = false;
@@ -134,7 +133,19 @@ if (count($_FILES) > 0) {
                     <div class="card-body text-center">
                         
                             <div class="container mb-3" id="pp">
-                        <img class="img img-responsive" height="160"
+                        <img class="img img-responsive" style="
+                        <?php
+                        $filename='http://localhost/coba/add_pp.php?id='.$id;
+                        $data = getimagesize($filename);
+                        $width = $data[0];
+                        $height = $data[1];
+                        if($width<$height){
+                           echo "height: auto;  width: 100%;";
+                        } else {
+                            echo "height: 100%;  width: auto;";
+                        }
+                        ?> 
+                        display: block; margin: auto;"
                             src="<?php echo $pp ?>" />
                             </div>
 
