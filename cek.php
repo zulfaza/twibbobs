@@ -58,8 +58,8 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
       <div class="row>
-          <div class="col-12">
-<table class="table-responsive">
+          <div class="table-responsive">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">No</th>
