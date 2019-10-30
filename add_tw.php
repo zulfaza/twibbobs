@@ -1,6 +1,6 @@
 <?php
 
-$koneksi = mysqli_connect("localhost","root","","twibbon");
+require_once("config.php");
 
 if (isset($_GET['id'])) {
     $sql = "SELECT * FROM tb_images WHERE id=" . $_GET['id'];
