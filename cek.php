@@ -58,6 +58,7 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
       <div class="row>
+          <div class="col">
 <table border="1">
     <tr><th>NO</th><th>id</th><th>username</th><th>email</th><th>nama</th><th>Level</th><th>Action</th></tr>
     <?php
@@ -77,6 +78,7 @@
     }
     ?>
 </table>
+          </div>
           </div>
       </div>
     </div>
