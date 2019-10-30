@@ -57,7 +57,6 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <div class="row">
           <div class="table-responsive">
             
           <table class="table">
@@ -91,7 +90,7 @@
     ?>
   </tbody>
 </table>
-</div></div>
+</div>
       </div>
     </div>
   </div>
@@ -107,9 +106,47 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
           <div class="row">
-              <div class="col">
-      <table border="1">
-    <tr><th>NO</th><th>id</th><th>author</th><th>nama twibbon</th><th>caption</th></tr>
+
+<div class="col-12">
+<form action="" method="POST">
+<fieldset>
+            <label>author</label>
+            <div class="form-group">
+            <select name="author" id="inputAuthor" class="form-control">
+            <?php
+    $user = mysqli_query($koneksi, "SELECT * from users");
+    $no=1;
+    $all="all";
+    foreach ($user as $row){
+        $author=$row['username'];
+        echo "<option value=\"$author\">$author</option>";
+        $no++;
+    }echo "<option value=\"$all\">All</option";
+    ?>
+            </select>
+            </div>
+            <div class="form-group">
+            <input type="submit" class="btn btn-primary" name="cek" value="Lihat" />
+            </div>
+            </fieldset>
+</form>
+</div>
+
+<div class="col-12">
+      
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Author</th>
+      <th scope="col">Nama Twibbon</th>
+      <th scope="col" class="d-none d-md-table-cell">Caption</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
     <?php
  if(isset($_POST['cek'])){   
     if ($_POST['author']!="all") {
@@ -129,37 +166,18 @@
             <td>".$row['id']."</td>
             <td>".$row['author']."</td>
             <td>".$row['nama_tw']."</td>
-            <td>".$row['caption']."</td>
+            <td class=\"d-none d-md-block\">".$row['caption']."</td>
               </tr>";
         $no++;
     }
     ?>
+    </tr>
+  </tbody>
 </table>
 </div>
-<div class="col">
-<form action="" method="POST">
-<fieldset>
-            <label>author</label>
-            <select name="author">
-            <?php
-    $user = mysqli_query($koneksi, "SELECT * from users");
-    $no=1;
-    $all="all";
-    foreach ($user as $row){
-        $author=$row['username'];
-        echo "<option value=\"$author\">$author</option>";
-        $no++;
-    }echo "<option value=\"$all\">All</option";
-    ?>
-   
-            </select>
-        </p>
-        <p>
-            <input type="submit" name="cek" value="Daftar" />
-        </p>
-</fieldset>
-</form>
+
 </div>
+
 </div>
       </div>
     </div>
@@ -175,8 +193,19 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-      <table border="1">
-    <tr><th>NO</th><th>id</th><th>nama</th><th>tipe image</th></tr>
+      
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Tipe Data</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
     <?php
     $user = mysqli_query($koneksi, "SELECT * from tb_pp");
     $no=1;
@@ -190,7 +219,11 @@
         $no++;
     }
     ?>
+    </tr>
+  </tbody>
 </table>
+</div>
+
       </div>
     </div>
   </div>
