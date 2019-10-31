@@ -2,7 +2,6 @@
 require_once("auth.php");
 require_once("config.php"); 
 ?>
-
 <?php
         $id = $_GET['edit'];
         $query  = mysqli_query($koneksi, "SELECT * FROM users WHERE id = '$id' ORDER BY id DESC");
@@ -11,6 +10,8 @@ require_once("config.php");
         $username = $data['username'];
         $email = $data['email'];
         $pp = $data['photo'];
+        $st_up1=0;
+        $st_up2=0;
 
 if (count($_FILES) > 0) {
   if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
@@ -53,7 +54,8 @@ if (count($_FILES) > 0) {
             $pp = "./add_pp.php?id=$id";
             $sql = "UPDATE users SET photo='$pp' WHERE id=$id";
             mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
-        }
+            $st_up1=1;
+          }
     } else {
         header("Location: tl_setting.php?pesan=overload&edit=$id");
     }
@@ -61,8 +63,6 @@ if (count($_FILES) > 0) {
 }
 
 if (isset($_POST['edit'])) {
-  
-      
       $id=$_POST['id'];
       $name=filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
       $username=filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -70,8 +70,13 @@ if (isset($_POST['edit'])) {
       
       $sql = "UPDATE users SET username='$username', email='$email', name='$name', photo='$pp' WHERE id=$id";
       mysqli_query($koneksi, $sql) or die(header("Location: tl_setting.php?pesan=setting_fail&edit=$id"));
-      header("Location: timeline.php?pesan=setting_berhasil");
-  }
+      $st_up2=2;
+    }
+$st_up=$st_up1+$st_up2;
+
+if($st_up==3){
+  header("Location: timeline.php?pesan=setting_berhasil");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

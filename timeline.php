@@ -135,8 +135,8 @@ if (count($_FILES) > 0) {
                             <div class="container mb-3" id="pp">
                         <img class="img img-responsive" style="
                         <?php
-                        $filename='https://twibbobs.omahti.web.id/add_pp.php?id='.$id;
-	   		$data = getimagesize($filename);
+                        $filename='http://localhost/coba/add_pp.php?id='.$id;
+	   		            $data = getimagesize($filename);
                         $width = $data[0];
                         $height = $data[1];
                         if($width<$height){
