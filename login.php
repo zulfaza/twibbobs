@@ -88,18 +88,18 @@ if($_SESSION['status']=="login"){
         echo "
         <link rel=\"stylesheet\" href=\"./css/style.css\">
         <div class=\"row\" id=\"section\">
-        <div class=\"col-md-7\" id=\"pesan\">
+        <div class=\"col-md-6\" id=\"pesan\">
         <div class=\"pesan\">
-        <div class=\"alert alert-danger\" role=\"alert\">Anda harus login untuk masuk ke dashboard</div>
+        <div class=\"alert alert-danger\" role=\"alert\">Anda harus login untuk masuk ke dashboard<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>
         </div></div></div>
         ";
         } else if($_GET['pesan']=="data_salah"){
           echo "
           <link rel=\"stylesheet\" href=\"./css/style.css\">
           <div class=\"row\" id=\"section\">
-          <div class=\"col-md-7\" id=\"pesan\">
+          <div class=\"col-md-6\" id=\"pesan\">
           <div class=\"pesan\">
-          <div class=\"alert alert-danger\" role=\"alert\">Password atau username salah</div>
+          <div class=\"alert alert-danger\" role=\"alert\">Password atau username salah  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button></div>
           </div></div></div>
           ";
           } 
