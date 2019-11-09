@@ -81,7 +81,7 @@ if($_SESSION['status']=="login"){
     </div>
   </header>
 
-  <div class="container  mt-5">
+  <div class="container" id="body">
     <?php 
         if(isset($_GET['pesan'])){
         if($_GET['pesan']=="belum_login"){

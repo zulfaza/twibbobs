@@ -11,11 +11,10 @@
       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Company name</h6>
+        <h6 class="text-uppercase font-weight-bold">About This Web</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>Web Twibbobs dibuat untuk tujuan menyelesaikan tugas IO OmahTi sehingga kami dapat 
+          membebaskan salah satu kating yang ditangkap oleh Moriaty (aslinya berharap mendapatkan freepass LDK Himakom nanti)</p>
 
       </div>
 

@@ -122,3 +122,7 @@
 .deep-purple{
     background: #6c63ff;
 }
+#body{
+    margin-bottom: 200px;
+    margin-top: 50px;
+}

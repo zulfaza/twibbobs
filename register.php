@@ -81,8 +81,7 @@ if($_SESSION['status']=="login"){
     </div>
   </header>
 
-<div class="container" style="
-    padding: 30px;">
+<div class="container" style="padding: 30px;" id="body">
     <?php 
         if(isset($_GET['pesan'])){
         if($_GET['pesan']=="saved"){
@@ -137,7 +136,7 @@ if($_SESSION['status']=="login"){
 
     </div>
 </div>
-
+    </div>
 <?php include('./php/footer.php')?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
