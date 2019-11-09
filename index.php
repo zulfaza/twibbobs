@@ -15,7 +15,7 @@ if($_SESSION['status']=="login"){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Twibbobs</title>
-
+  <script src="https://kit.fontawesome.com/cb61666d8f.js" crossorigin="anonymous"></script>
   <!-- menyisipkan bootstrap -->
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/style.css">
@@ -74,6 +74,9 @@ if($_SESSION['status']=="login"){
       </div>
     </div>
   </section>
+
+  <?php include('./php/footer.php')?>
+  
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>

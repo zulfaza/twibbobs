@@ -3,7 +3,7 @@
     position: relative;
     background: #FFF;
     background-size: cover;
-    padding: 100px 0 250px;
+    padding: 100px 0 300px;
 }
 #intro .intro-info .btn-get-started,
 #intro .intro-info .btn-services {
@@ -110,3 +110,15 @@
         margin-top:30px;
     }
   }
+#footer{
+    background: #3f3d56;
+    color: #e0e0e0;
+    padding-top: 1px;
+    border-top: 20px solid #6c63ff;
+}
+#footer a{
+    color:#FFF;
+}
+.deep-purple{
+    background: #6c63ff;
+}
