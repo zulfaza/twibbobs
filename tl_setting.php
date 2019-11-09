@@ -108,9 +108,9 @@ if($st_up==3){
             <li class="nav-item active">
               <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="./logout.php" style="color:#007bff">logout</a>
             </li>

@@ -107,9 +107,9 @@ if (count($_FILES) > 0) {
             <li class="nav-item active">
               <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
-            </li>
+            </li> -->
             <?php
             if($_SESSION["user"]['level']=="admin"){
                 echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"./cek.php\" style=\"color:red\">Admin Page</a></li>"; 

@@ -69,9 +69,9 @@ if($_SESSION['status']=="login"){
             <li class="nav-item active">
               <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="./register.php" style="color:#007bff">Sign Up</a>
             </li>
